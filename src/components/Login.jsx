@@ -12,7 +12,7 @@ const Login = () => {
 
   const onFinish = async (values) => {
     try {
-      const { data } = await axios.post('http://localhost:8080/auth/login', values);
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL.replace(/\/+$/, '')}/auth/login`, values);
 
       login(data.token, data.user); 
       message.success('Login successful');
