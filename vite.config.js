@@ -13,28 +13,28 @@ export default defineConfig(({ command, mode }) => {
     // Only enable proxy during development
     ...(command === 'serve' && {
       server: {
-        proxy: {
-          '/customer': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-          },
-          '/log': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-          },
-          '/auth': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-          },
-          '/enquiries': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-          },
-          '/calllogs': {
-            target: 'http://localhost:8080',
-            changeOrigin: true,
-          },
+       proxy: {
+        '/customer': {
+          target: env.VITE_API_URL,
+          changeOrigin: true,
         },
+        '/log': {
+          target: env.VITE_API_URL,
+          changeOrigin: true,
+        },
+        '/auth': {
+          target: env.VITE_API_URL,
+          changeOrigin: true,
+        },
+        '/enquiries': {
+          target: env.VITE_API_URL,
+          changeOrigin: true,
+        },
+        '/calllogs': {
+          target: env.VITE_API_URL,
+          changeOrigin: true,
+        },
+      },
       },
     }),
   };
