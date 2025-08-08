@@ -22,7 +22,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import * as XLS from 'xlsx'
 
-axios.defaults.baseURL = "http://localhost:8080"
+axios.defaults.baseURL = import.meta.env.VITE_API_URL; 
 
 const Customers = () => {
   const [importModal, setImportModal] = useState(false)
